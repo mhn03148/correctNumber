@@ -9,10 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     @State var isCorrectName: String = "버튼을 눌러 주세요"
+    @State var countNumber: Int = 0
     @State var randomNumber = Int.random(in: 0...9)
     @State var randomNumber1 = Int.random(in: 0...9)
     @State var randomNumber2 = Int.random(in: 0...9)
     @State var randomNumber3 = Int.random(in: 0...9)
+    @State var isCorrectArray: [Int] = [0,0,0,0]
+    @State var currentNumber: [Int] = [0,0,0,0]
     var body: some View {
         VStack {
             Spacer()
@@ -20,248 +23,48 @@ struct ContentView: View {
             Spacer()
             Text(isCorrectName)
             Spacer()
-            Group{
-                HStack{
-                    Group{
-                        Button {
-                            isCorrectNumber(0)
-                        } label: {
-                            Text("0")
-                        }
-                        Button ("1") {
-                            print("\(randomNumber)")
-                            isCorrectNumber(1)
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(2)
-                        } label: {
-                            Text("2")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(3)
-                        } label: {
-                            Text("3")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(4)
-                        } label: {
-                            Text("4")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(5)
-                        } label: {
-                            Text("5")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(6)
-                        } label: {
-                            Text("6")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(7)
-                        } label: {
-                            Text("7")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(8)
-                        } label: {
-                            Text("8")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(9)
-                        } label: {
-                            Text("9")
+            Group {
+                HStack {
+                    Group {
+                        ForEach (0..<10) { number in
+                            Button {
+                                isCorrectNumber(0,randomNumber,number)
+                            } label: {
+                                Text("\(number)")
+                            }
                         }
                     }
                 }.font(.title)
-                HStack{
-                    Group{
-                        Button {
-                            isCorrectNumber(0)
-                        } label: {
-                            Text("0")
-                        }
-                        Button ("1") {
-                            print("\(randomNumber)")
-                            isCorrectNumber(1)
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(2)
-                        } label: {
-                            Text("2")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(3)
-                        } label: {
-                            Text("3")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(4)
-                        } label: {
-                            Text("4")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(5)
-                        } label: {
-                            Text("5")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(6)
-                        } label: {
-                            Text("6")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(7)
-                        } label: {
-                            Text("7")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(8)
-                        } label: {
-                            Text("8")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(9)
-                        } label: {
-                            Text("9")
+                HStack {
+                    Group {
+                        ForEach (0..<10) { number in
+                            Button {
+                                isCorrectNumber(1,randomNumber1,number)
+                            } label: {
+                                Text("\(number)")
+                            }
                         }
                     }
                 }.font(.title)
-                HStack{
-                    Group{
-                        Button {
-                            isCorrectNumber(0)
-                        } label: {
-                            Text("0")
-                        }
-                        Button ("1") {
-                            print("\(randomNumber)")
-                            isCorrectNumber(1)
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(2)
-                        } label: {
-                            Text("2")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(3)
-                        } label: {
-                            Text("3")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(4)
-                        } label: {
-                            Text("4")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(5)
-                        } label: {
-                            Text("5")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(6)
-                        } label: {
-                            Text("6")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(7)
-                        } label: {
-                            Text("7")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(8)
-                        } label: {
-                            Text("8")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(9)
-                        } label: {
-                            Text("9")
+                HStack {
+                    Group {
+                        ForEach (0..<10) { number in
+                            Button {
+                                isCorrectNumber(2,randomNumber2,number)
+                            } label: {
+                                Text("\(number)")
+                            }
                         }
                     }
                 }.font(.title)
-                HStack{
-                    Group{
-                        Button {
-                            isCorrectNumber(0)
-                        } label: {
-                            Text("0")
-                        }
-                        Button ("1") {
-                            print("\(randomNumber)")
-                            isCorrectNumber(1)
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(2)
-                        } label: {
-                            Text("2")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(3)
-                        } label: {
-                            Text("3")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(4)
-                        } label: {
-                            Text("4")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(5)
-                        } label: {
-                            Text("5")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(6)
-                        } label: {
-                            Text("6")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(7)
-                        } label: {
-                            Text("7")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(8)
-                        } label: {
-                            Text("8")
-                        }
-                        Button {
-                            print("\(randomNumber)")
-                            isCorrectNumber(9)
-                        } label: {
-                            Text("9")
+                HStack {
+                    Group {
+                        ForEach (0..<10) { number in
+                            Button {
+                                isCorrectNumber(3,randomNumber3,number)
+                            } label: {
+                                Text("\(number)")
+                            }
                         }
                     }
                 }.font(.title)
@@ -273,10 +76,20 @@ struct ContentView: View {
             }
             Button  {
                 randomNumber = Int.random(in: 0...9)
+                randomNumber1 = Int.random(in: 0...9)
+                randomNumber2 = Int.random(in: 0...9)
+                randomNumber3 = Int.random(in: 0...9)
+                countNumber = 0
+                isCorrectArray = [0,0,0,0]
+                isCorrectName = "버튼을 놀러 주세요."
             }label: {
                 Text("새로운 게임하기")
             }
+            Text("\(randomNumber)\(randomNumber1)\(randomNumber2)\(randomNumber3)")
+            
             Group {
+                Text("현재 맞춘 개수 \(countNumber)개")
+                Text("현재 당신의 숫자 \(currentNumber[0])\(currentNumber[1])\(currentNumber[2])\(currentNumber[3])")
                 Spacer()
                 Spacer()
                 Spacer()
@@ -284,19 +97,29 @@ struct ContentView: View {
         }
         .padding()
     }
-    func isCorrectNumber(_ index: Int){
-        if randomNumber == index {
-            isCorrectName = "숫자를 맞췄습니다."
+    func isCorrectNumber(_ Case: Int, _ inputRandomNumber: Int, _ index: Int) {
+        var number: Int = 0
+        currentNumber[Case] = index
+        if inputRandomNumber == index {
+            isCorrectArray[Case] = 1
         }
         else {
-            if index > randomNumber {
-                isCorrectName = "숫자가 큽니다 낮춰보세요"
-            }
-            else if index < randomNumber {
-                isCorrectName = "숫자가 작습니다 높여보세요"
+            isCorrectArray[Case] = 0
+        }
+        for i in isCorrectArray {
+            if i == 1 {
+                number += 1
             }
         }
+        countNumber = number
+        if countNumber > 0{
+            isCorrectName = "숫자를 맞췄습니다.\(countNumber)개 맞췄습니다."
+        }
+        else {
+            isCorrectName = "한개도 맞추지 못했습니다."
+        }
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
