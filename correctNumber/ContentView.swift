@@ -85,7 +85,7 @@ struct ContentView: View {
             }label: {
                 Text("새로운 게임하기")
             }
-            Text("\(randomNumber)\(randomNumber1)\(randomNumber2)\(randomNumber3)")
+            Text("\(randomNumber)\(randomNumber1)\(randomNumber2)\(randomNumber3)").foregroundColor(Color.white)
             
             Group {
                 Text("현재 맞춘 개수 \(countNumber)개")
